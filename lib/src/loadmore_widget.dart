@@ -301,7 +301,7 @@ class DefaultLoadMoreView extends StatefulWidget {
 }
 
 const _defaultLoadMoreHeight = 80.0;
-const _loadmoreIndicatorSize = 33.0;
+const _loadmoreIndicatorSize = 20.0;
 const _loadMoreDelay = 16;
 
 class DefaultLoadMoreViewState extends State<DefaultLoadMoreView> {
@@ -384,23 +384,11 @@ class DefaultLoadMoreDelegate extends LoadMoreDelegate {
       return Text(text);
     }
     if (status == LoadMoreStatus.loading) {
-      return Container(
-        alignment: Alignment.center,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(
-              width: _loadmoreIndicatorSize,
-              height: _loadmoreIndicatorSize,
-              child: CircularProgressIndicator(
-                backgroundColor: Colors.blue,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(text),
-            ),
-          ],
+      return Center(
+        child: SizedBox(
+          width: _loadmoreIndicatorSize,
+          height: _loadmoreIndicatorSize,
+          child: CircularProgressIndicator(color: Color(0xFF17C8A8)),
         ),
       );
     }
